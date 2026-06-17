@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# ===== BYPASS: api_gateway.php — KHÔNG rewrite, trả thẳng về file PHP =====
+RewriteRule ^api_gateway\.php$ - [L,NC]
+
+# ===== Bỏ qua file và thư mục thực tế =====
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# ===== Các trang web thông thường → index.php =====
+RewriteRule ^(.*)$ index.php?page=$1 [L,QSA]

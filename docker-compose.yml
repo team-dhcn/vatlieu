@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  # Container 1: Chạy giao diện Web PHP
+  web:
+    build: .
+    container_name: app_vlxd_web
+    ports:
+      - "8080:80" # Ánh xạ cổng 8080 máy thật vào cổng 80 container
+    volumes:
+      - .:/var/www/html # Đồng bộ code trực tiếp để sửa ở VS Code là container nhận luôn
+    depends_on:
+      - db
+    networks:
+      - network_vlxd
+
+  # Container 2: Chạy Cơ sở dữ liệu MySQL
+  db:
+    image: mysql:8.0
+    container_name: app_vlxd_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: vatlieu      # Khởi tạo database tên là vatlieu
+      MYSQL_USER: lananh
+      MYSQL_PASSWORD: user_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data_vlxd:/var/lib/mysql # Volume lưu dữ liệu bền vững chống mất mát khi sập container
+      # THẦN CHÚ: Tự động nạp file SQL tạo bảng ngay khi khởi chạy lần đầu
+      - ./database/vatlieu.sql:/docker-entrypoint-initdb.d/vatlieu.sql
+    networks:
+      - network_vlxd
+
+networks:
+  network_vlxd:
+    driver: bridge
+
+volumes:
+  db_data_vlxd:
