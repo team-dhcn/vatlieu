@@ -219,3 +219,8 @@ INSERT INTO Nguoidung (Manv, Tendangnhap, Matkhau, Hovaten, Email, Vaitro)
 VALUES ('NV001', 'admin', '123456', 'Qu?n tr? viên', 'admin@vlxd.com', 'admin')
 ON DUPLICATE KEY UPDATE Tendangnhap='admin';
 
+
+-- Them tai khoan admin mac dinh de dang nhap
+INSERT INTO Nguoidung (Manv, Tendangnhap, Matkhau, Hovaten, Email, Vaitro)
+VALUES ('NV001', 'admin', '123456', 'Quan tri vien', 'admin@vlxd.com', 'admin')
+ON DUPLICATE KEY UPDATE Tendangnhap='admin';

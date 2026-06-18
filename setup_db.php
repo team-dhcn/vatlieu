@@ -1,7 +1,7 @@
 <?php
-$host = '127.0.0.1';
-$user = 'root';
-$pass = '';
+$host = getenv('DB_HOST') ?: '127.0.0.1';
+$user = getenv('DB_USER') ?: 'root';
+$pass = getenv('DB_PASSWORD') ?: '';
 
 echo "<!DOCTYPE html><html lang='vi'><head><meta charset='utf-8'><title>Setup Database VLXD</title><style>body{font-family:monospace;background:#1e1e1e;color:#00ff00;padding:20px;}.err{color:#ff5555;}</style></head><body><h2>Thiết lập database vatlieu (monolith)</h2><pre>";
 
