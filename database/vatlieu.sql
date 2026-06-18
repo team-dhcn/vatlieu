@@ -224,3 +224,8 @@ ON DUPLICATE KEY UPDATE Tendangnhap='admin';
 INSERT INTO Nguoidung (Manv, Tendangnhap, Matkhau, Hovaten, Email, Vaitro)
 VALUES ('NV001', 'admin', '123456', 'Quan tri vien', 'admin@vlxd.com', 'admin')
 ON DUPLICATE KEY UPDATE Tendangnhap='admin';
+
+-- Them tai khoan lananh mac dinh de test
+INSERT INTO Nguoidung (Manv, Tendangnhap, Matkhau, Hovaten, Email, Vaitro)
+VALUES ('NV002', 'lananh', '123456', 'Lan Anh', 'lananh@vlxd.com', 'admin')
+ON DUPLICATE KEY UPDATE Tendangnhap='lananh';

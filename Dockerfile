@@ -4,6 +4,10 @@ FROM php:8.2-apache
 # Cài đặt extension bắt buộc để kết nối MySQL từ PHP
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 
+# Bật module rewrite của Apache và cho phép đọc ghi file .htaccess (AllowOverride All)
+RUN a2enmod rewrite && \
+    sed -i '/<Directory \/var\/www\/>/,/<\/Directory>/ s/AllowOverride None/AllowOverride All/' /etc/apache2/apache2.conf
+
 # Sao chép toàn bộ mã nguồn dự án hiện tại vào container
 COPY . /var/www/html/
 
