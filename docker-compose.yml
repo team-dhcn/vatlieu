@@ -13,6 +13,11 @@ services:
       - db
     networks:
       - network_vlxd
+    environment:
+      DB_HOST: db
+      DB_USER: lananh
+      DB_PASSWORD: user_password
+      DB_NAME: vatlieu
 
   # Container 2: Chạy Cơ sở dữ liệu MySQL
   db:

@@ -175,15 +175,7 @@ CREATE TABLE IF NOT EXISTS Chitiet_Phieuxuat (
     FOREIGN KEY (Masp) REFERENCES Sanpham(Masp) ON UPDATE CASCADE ON DELETE RESTRICT
 ) ENGINE=InnoDB;
 
-CREATE TABLE IF NOT EXISTS Thanhtoan (
-    Matt INT AUTO_INCREMENT PRIMARY KEY,
-    Maxuathang VARCHAR(50),
-    Ngaythanhtoan DATE NOT NULL,
-    Sotienthanhtoan DECIMAL(18, 2) NOT NULL,
-    Hinhthuc VARCHAR(50),
-    Ghichu TEXT,
-    FOREIGN KEY (Maxuathang) REFERENCES Phieuxuat(Maxuathang) ON UPDATE CASCADE ON DELETE SET NULL
-) ENGINE=InnoDB;
+
 
 -- ------------------------------------------------------------
 -- Sáº£n xuáº¥t (manufacturing-service)
@@ -221,3 +213,9 @@ CREATE TABLE IF NOT EXISTS Chitiet_Nhapsanpham_Sanxuat (
 ) ENGINE=InnoDB;
 
 SET FOREIGN_KEY_CHECKS = 1;
+
+-- Thêm tài kho?n admin m?c d?nh d? dang nh?p
+INSERT INTO Nguoidung (Manv, Tendangnhap, Matkhau, Hovaten, Email, Vaitro)
+VALUES ('NV001', 'admin', '123456', 'Qu?n tr? viên', 'admin@vlxd.com', 'admin')
+ON DUPLICATE KEY UPDATE Tendangnhap='admin';
+

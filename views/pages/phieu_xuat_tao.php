@@ -1,59 +1,59 @@
-﻿<!-- views/pages/phieu_xuat_tao.php -->
+<!-- views/pages/phieu_xuat_tao.php -->
 <div class="page-header d-flex justify-content-between align-items-center mb-4 p-4 rounded-3 shadow-sm bg-gradient-export">
     <div>
-        <h1 class="mb-1 text-white fw-bold fs-3"><i class="fas fa-file-export me-2"></i>Tạo phiếu xuất hàng mới</h1>
-        <p class="mb-0 text-white opacity-75">Xuất thành phẩm từ kho cho khách hàng và đại lý</p>
+        <h1 class="mb-1 text-white fw-bold fs-3"><i class="fas fa-file-export me-2"></i>T?o phi?u xu?t h�ng m?i</h1>
+        <p class="mb-0 text-white opacity-75">Xu?t th�nh ph?m t? kho cho kh�ch h�ng v� d?i l�</p>
     </div>
-    <a href="phieu-xuat-danh-sach" class="btn btn-light btn-lg fw-bold text-export shadow-sm"><i class="fas fa-list-ul me-2"></i>Xem danh sách</a>
+    <a href="phieu-xuat-danh-sach" class="btn btn-light btn-lg fw-bold text-export shadow-sm"><i class="fas fa-list-ul me-2"></i>Xem danh s�ch</a>
 </div>
 
 <div id="statusAlert" class="alert d-none mb-4 shadow-sm border-0"></div>
 
 <div class="card border-0 shadow-sm rounded-3 mb-4">
     <div class="card-header-export p-3 border-bottom d-flex align-items-center">
-        <h5 class="mb-0 text-white fw-bold"><i class="fas fa-info-circle me-2"></i>Thông tin phiếu xuất</h5>
+        <h5 class="mb-0 text-white fw-bold"><i class="fas fa-info-circle me-2"></i>Th�ng tin phi?u xu?t</h5>
     </div>
     <div class="card-body p-4">
         <form id="createExportForm">
             <div class="row g-4 mb-4">
                 <div class="col-md-3">
-                    <label class="form-label text-muted small fw-bold text-uppercase">Mã phiếu xuất</label>
+                    <label class="form-label text-muted small fw-bold text-uppercase">M� phi?u xu?t</label>
                     <div class="input-group">
                         <span class="input-group-text bg-light border-end-0"><i class="fas fa-hashtag"></i></span>
-                        <input type="text" class="form-control border-start-0 ps-0" id="fMaPX" placeholder="Tự động tạo nếu để trống">
+                        <input type="text" class="form-control border-start-0 ps-0" id="fMaPX" placeholder="T? d?ng t?o n?u d? tr?ng">
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <label class="form-label text-muted small fw-bold text-uppercase">Khách hàng <span class="text-danger">*</span></label>
+                    <label class="form-label text-muted small fw-bold text-uppercase">Kh�ch h�ng <span class="text-danger">*</span></label>
                     <select class="form-select border-1 select2-custom" id="fMakh" required>
-                        <option value="">-- Chọn khách hàng --</option>
+                        <option value="">-- Ch?n kh�ch h�ng --</option>
                     </select>
                 </div>
                 <div class="col-md-3">
-                    <label class="form-label text-muted small fw-bold text-uppercase">Kho xuất hàng <span class="text-danger">*</span></label>
+                    <label class="form-label text-muted small fw-bold text-uppercase">Kho xu?t h�ng <span class="text-danger">*</span></label>
                     <select class="form-select border-1" id="fMakho" required>
-                        <option value="">-- Chọn kho xuất --</option>
+                        <option value="">-- Ch?n kho xu?t --</option>
                     </select>
                 </div>
                 <div class="col-md-3">
-                    <label class="form-label text-muted small fw-bold text-uppercase">Ngày xuất <span class="text-danger">*</span></label>
+                    <label class="form-label text-muted small fw-bold text-uppercase">Ng�y xu?t <span class="text-danger">*</span></label>
                     <input type="date" class="form-control" id="fNgayXuat" required>
                 </div>
             </div>
             
             <div class="row g-4 mb-4">
                 <div class="col-12">
-                    <label class="form-label text-muted small fw-bold text-uppercase">Ghi chú (Tùy chọn)</label>
-                    <textarea class="form-control" id="fGhichu" rows="1" placeholder="Ví dụ: Xuất hàng cho đơn hàng #12345..."></textarea>
+                    <label class="form-label text-muted small fw-bold text-uppercase">Ghi ch� (T�y ch?n)</label>
+                    <textarea class="form-control" id="fGhichu" rows="1" placeholder="V� d?: Xu?t h�ng cho don h�ng #12345..."></textarea>
                 </div>
             </div>
 
             <hr class="my-4 opacity-10">
 
             <div class="d-flex justify-content-between align-items-center mb-3">
-                <h6 class="fw-bold text-export mb-0"><i class="fas fa-boxes me-2"></i>Chi tiết danh sách hàng xuất</h6>
+                <h6 class="fw-bold text-export mb-0"><i class="fas fa-boxes me-2"></i>Chi ti?t danh s�ch h�ng xu?t</h6>
                 <button type="button" class="btn btn-sm btn-outline-warning rounded-pill px-3" onclick="addItemRow()">
-                    <i class="fas fa-plus me-1"></i>Thêm sản phẩm
+                    <i class="fas fa-plus me-1"></i>Th�m s?n ph?m
                 </button>
             </div>
 
@@ -62,18 +62,18 @@
             </div>
 
             <div class="p-3 rounded-3 bg-light border d-flex justify-content-between align-items-center mb-4">
-                <span class="fw-bold text-muted text-uppercase small">Tổng giá trị đơn xuất:</span>
+                <span class="fw-bold text-muted text-uppercase small">T?ng gi� tr? don xu?t:</span>
                 <div>
                     <span class="fs-4 fw-bold text-success" id="grandTotal">0</span>
-                    <span class="fs-4 fw-bold text-success ms-1">VNĐ</span>
+                    <span class="fs-4 fw-bold text-success ms-1">VN�</span>
                 </div>
             </div>
 
             <div class="d-flex gap-3">
                 <button type="submit" class="btn btn-lg btn-export-action px-5 rounded-pill shadow-sm" id="btnSubmit">
-                    <i class="fas fa-check-circle me-2"></i>Xác nhận & Lưu phiếu
+                    <i class="fas fa-check-circle me-2"></i>X�c nh?n & Luu phi?u
                 </button>
-                <a href="phieu-xuat-danh-sach" class="btn btn-lg btn-outline-secondary px-4 rounded-pill border-0">Hủy bỏ</a>
+                <a href="phieu-xuat-danh-sach" class="btn btn-lg btn-outline-secondary px-4 rounded-pill border-0">H?y b?</a>
             </div>
         </form>
     </div>
@@ -90,7 +90,7 @@
 </style>
 
 <script>
-    const API_EXPORT_V1 = '/vlxd/api_gateway.php';
+    const API_EXPORT_V1 = '/api_gateway.php';
     const authHeaders_V1 = { 'Authorization': 'Bearer ' + localStorage.getItem('token'), 'Content-Type': 'application/json' };
     let availableProducts = [];
 
@@ -118,7 +118,7 @@
                 addItemRow();
             }
         } catch (e) {
-            showNotify('Không thể tải các danh mục lựa chọn (Khách hàng, Kho, SP)', 'danger');
+            showNotify('Kh�ng th? t?i c�c danh m?c l?a ch?n (Kh�ch h�ng, Kho, SP)', 'danger');
         }
     }
 
@@ -129,22 +129,22 @@
         div.innerHTML = `
             <div class="row g-3 align-items-end">
                 <div class="col-md-5">
-                    <label class="form-label small text-muted">Sản phẩm xuất</label>
+                    <label class="form-label small text-muted">S?n ph?m xu?t</label>
                     <select class="form-select border-0 bg-light select-product" onchange="updateRowPrice(this)" required>
-                        <option value="">-- Chọn sản phẩm --</option>
+                        <option value="">-- Ch?n s?n ph?m --</option>
                         ${availableProducts.map(p => `<option value="${p.Masp}" data-price="${p.Giaban || 0}">${p.Tensp} (${p.Dvt || ''})</option>`).join('')}
                     </select>
                 </div>
                 <div class="col-md-2">
-                    <label class="form-label small text-muted">Số lượng</label>
+                    <label class="form-label small text-muted">S? lu?ng</label>
                     <input type="number" min="0.01" step="0.01" class="form-control border-0 bg-light input-qty" placeholder="0.00" oninput="calculateGrandTotal()" required>
                 </div>
                 <div class="col-md-2">
-                    <label class="form-label small text-muted">Đơn giá (đ)</label>
-                    <input type="number" min="0" step="1000" class="form-control border-0 bg-light input-price" placeholder="Giá bán" oninput="calculateGrandTotal()" required>
+                    <label class="form-label small text-muted">�on gi� (d)</label>
+                    <input type="number" min="0" step="1000" class="form-control border-0 bg-light input-price" placeholder="Gi� b�n" oninput="calculateGrandTotal()" required>
                 </div>
                 <div class="col-md-2">
-                    <label class="form-label small text-muted">Thành tiền</label>
+                    <label class="form-label small text-muted">Th�nh ti?n</label>
                     <div class="form-control border-0 bg-light fw-bold text-success text-end row-total">0</div>
                 </div>
                 <div class="col-md-1">
@@ -163,7 +163,7 @@
             btn.closest('.item-row').remove();
             calculateGrandTotal();
         } else {
-            alert('Cần ít nhất một sản phẩm trong phiếu xuất.');
+            alert('C?n �t nh?t m?t s?n ph?m trong phi?u xu?t.');
         }
     }
 
@@ -200,7 +200,7 @@
         e.preventDefault();
         const btn = document.getElementById('btnSubmit');
         btn.disabled = true;
-        btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span> Đang xử lý...';
+        btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span> �ang x? l�...';
 
         const details = [];
         document.querySelectorAll('.item-row').forEach(row => {
@@ -228,15 +228,15 @@
             const data = await res.json();
             
             if (data.success) {
-                showNotify(`Đã lưu phiếu xuất thành công! (Mã: ${data.data.id})`, 'success');
+                showNotify(`�� luu phi?u xu?t th�nh c�ng! (M�: ${data.data.id})`, 'success');
                 setTimeout(() => window.location.href = 'phieu-xuat-danh-sach', 2000);
             } else {
                 showNotify(data.message, 'danger');
                 btn.disabled = false;
-                btn.innerHTML = '<i class="fas fa-check-circle me-2"></i>Xác nhận & Lưu phiếu';
+                btn.innerHTML = '<i class="fas fa-check-circle me-2"></i>X�c nh?n & Luu phi?u';
             }
         } catch (error) {
-            showNotify('Lỗi kết nối server', 'danger');
+            showNotify('L?i k?t n?i server', 'danger');
             btn.disabled = false;
         }
     });

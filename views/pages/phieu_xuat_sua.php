@@ -1,18 +1,18 @@
-﻿<!-- views/pages/phieu_xuat_sua.php -->
+<!-- views/pages/phieu_xuat_sua.php -->
 <div class="page-header d-flex justify-content-between align-items-center mb-4 p-4 rounded-3 shadow-sm bg-gradient-export">
     <div>
-        <h1 class="mb-1 text-white fw-bold fs-3"><i class="fas fa-edit me-2"></i>Sửa phiếu xuất kho</h1>
-        <p class="mb-0 text-white opacity-75">Cập nhật thông tin phiếu xuất và điều chỉnh tồn kho</p>
+        <h1 class="mb-1 text-white fw-bold fs-3"><i class="fas fa-edit me-2"></i>S?a phi?u xu?t kho</h1>
+        <p class="mb-0 text-white opacity-75">C?p nh?t th�ng tin phi?u xu?t v� di?u ch?nh t?n kho</p>
     </div>
     <div class="d-flex gap-2">
-        <a href="phieu-xuat-chi-tiet?id=${encodeURIComponent(new URLSearchParams(window.location.search).get('id'))}" class="btn btn-light fw-bold text-dark border-0 shadow-sm" id="btnViewDetail"><i class="fas fa-eye me-2"></i>Xem chi tiết</a>
-        <a href="phieu-xuat-danh-sach" class="btn btn-outline-light fw-bold border-1 shadow-sm"><i class="fas fa-arrow-left me-2"></i>Danh sách</a>
+        <a href="phieu-xuat-chi-tiet?id=${encodeURIComponent(new URLSearchParams(window.location.search).get('id'))}" class="btn btn-light fw-bold text-dark border-0 shadow-sm" id="btnViewDetail"><i class="fas fa-eye me-2"></i>Xem chi ti?t</a>
+        <a href="phieu-xuat-danh-sach" class="btn btn-outline-light fw-bold border-1 shadow-sm"><i class="fas fa-arrow-left me-2"></i>Danh s�ch</a>
     </div>
 </div>
 
 <div id="editLoading" class="text-center py-5">
     <div class="spinner-border text-warning" role="status"></div>
-    <div class="mt-2 text-muted">Đang tải dữ liệu phiếu xuất...</div>
+    <div class="mt-2 text-muted">�ang t?i d? li?u phi?u xu?t...</div>
 </div>
 
 <div id="editContent" class="d-none">
@@ -20,46 +20,46 @@
 
     <div class="card border-0 shadow-sm rounded-3 mb-4">
         <div class="card-header bg-primary p-3 border-bottom d-flex align-items-center">
-            <h5 class="mb-0 text-white fw-bold"><i class="fas fa-info-circle me-2"></i>Cập nhật thông tin phiếu</h5>
+            <h5 class="mb-0 text-white fw-bold"><i class="fas fa-info-circle me-2"></i>C?p nh?t th�ng tin phi?u</h5>
         </div>
         <div class="card-body p-4">
             <form id="editExportForm">
                 <div class="row g-4 mb-4">
                     <div class="col-md-3">
-                        <label class="form-label text-muted small fw-bold text-uppercase">Mã phiếu xuất</label>
+                        <label class="form-label text-muted small fw-bold text-uppercase">M� phi?u xu?t</label>
                         <input type="text" class="form-control bg-light border-0 fw-bold" id="eMaPX" readonly>
                     </div>
                     <div class="col-md-3">
-                        <label class="form-label text-muted small fw-bold text-uppercase">Khách hàng <span class="text-danger">*</span></label>
+                        <label class="form-label text-muted small fw-bold text-uppercase">Kh�ch h�ng <span class="text-danger">*</span></label>
                         <select class="form-select border-1" id="eMakh" required>
-                            <option value="">-- Chọn khách hàng --</option>
+                            <option value="">-- Ch?n kh�ch h�ng --</option>
                         </select>
                     </div>
                     <div class="col-md-3">
-                        <label class="form-label text-muted small fw-bold text-uppercase">Kho xuất hàng <span class="text-danger">*</span></label>
+                        <label class="form-label text-muted small fw-bold text-uppercase">Kho xu?t h�ng <span class="text-danger">*</span></label>
                         <select class="form-select border-1" id="eMakho" required>
-                            <option value="">-- Chọn kho xuất --</option>
+                            <option value="">-- Ch?n kho xu?t --</option>
                         </select>
                     </div>
                     <div class="col-md-3">
-                        <label class="form-label text-muted small fw-bold text-uppercase">Ngày xuất <span class="text-danger">*</span></label>
+                        <label class="form-label text-muted small fw-bold text-uppercase">Ng�y xu?t <span class="text-danger">*</span></label>
                         <input type="date" class="form-control" id="eNgayXuat" required>
                     </div>
                 </div>
                 
                 <div class="row g-4 mb-4">
                     <div class="col-12">
-                        <label class="form-label text-muted small fw-bold text-uppercase">Ghi chú (Tùy chọn)</label>
-                        <textarea class="form-control" id="eGhichu" rows="1" placeholder="Ghi chú..."></textarea>
+                        <label class="form-label text-muted small fw-bold text-uppercase">Ghi ch� (T�y ch?n)</label>
+                        <textarea class="form-control" id="eGhichu" rows="1" placeholder="Ghi ch�..."></textarea>
                     </div>
                 </div>
 
                 <hr class="my-4 opacity-10">
 
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h6 class="fw-bold text-primary mb-0"><i class="fas fa-boxes me-2"></i>Chi tiết danh sách hàng xuất</h6>
+                    <h6 class="fw-bold text-primary mb-0"><i class="fas fa-boxes me-2"></i>Chi ti?t danh s�ch h�ng xu?t</h6>
                     <button type="button" class="btn btn-sm btn-outline-primary rounded-pill px-3" onclick="addEditItemRow()">
-                        <i class="fas fa-plus me-1"></i>Thêm sản phẩm
+                        <i class="fas fa-plus me-1"></i>Th�m s?n ph?m
                     </button>
                 </div>
 
@@ -68,18 +68,18 @@
                 </div>
 
                 <div class="p-3 rounded-3 bg-light border d-flex justify-content-between align-items-center mb-4">
-                    <span class="fw-bold text-muted text-uppercase small">Tổng giá trị đơn xuất:</span>
+                    <span class="fw-bold text-muted text-uppercase small">T?ng gi� tr? don xu?t:</span>
                     <div>
                         <span class="fs-4 fw-bold text-success" id="editGrandTotal">0</span>
-                        <span class="fs-4 fw-bold text-success ms-1">VNĐ</span>
+                        <span class="fs-4 fw-bold text-success ms-1">VN�</span>
                     </div>
                 </div>
 
                 <div class="d-flex gap-3">
                     <button type="submit" class="btn btn-lg btn-primary px-5 rounded-pill shadow-sm fw-bold" id="btnSaveUpdate">
-                        <i class="fas fa-save me-2"></i>Lưu thay đổi
+                        <i class="fas fa-save me-2"></i>Luu thay d?i
                     </button>
-                    <a href="phieu-xuat-danh-sach" class="btn btn-lg btn-outline-secondary px-4 rounded-pill border-0">Hủy bỏ</a>
+                    <a href="phieu-xuat-danh-sach" class="btn btn-lg btn-outline-secondary px-4 rounded-pill border-0">H?y b?</a>
                 </div>
             </form>
         </div>
@@ -94,14 +94,14 @@
 </style>
 
 <script>
-    const API_EDIT_V1 = '/vlxd/api_gateway.php';
+    const API_EDIT_V1 = '/api_gateway.php';
     const editHeaders = { 'Authorization': 'Bearer ' + localStorage.getItem('token'), 'Content-Type': 'application/json' };
     let editProducts = [];
     let receiptIdToEdit = new URLSearchParams(window.location.search).get('id');
 
     async function initEditPage() {
         if (!receiptIdToEdit) {
-            alert('Mã phiếu không hợp lệ.');
+            alert('M� phi?u kh�ng h?p l?.');
             window.location.href = 'phieu-xuat-danh-sach';
             return;
         }
@@ -150,7 +150,7 @@
                 throw new Error(rData.message);
             }
         } catch (e) {
-            document.getElementById('editLoading').innerHTML = `<div class="alert alert-danger mx-5">Lỗi: ${e.message}</div>`;
+            document.getElementById('editLoading').innerHTML = `<div class="alert alert-danger mx-5">L?i: ${e.message}</div>`;
         }
     }
 
@@ -161,22 +161,22 @@
         div.innerHTML = `
             <div class="row g-3 align-items-end">
                 <div class="col-md-5">
-                    <label class="form-label small text-muted">Sản phẩm xuất</label>
+                    <label class="form-label small text-muted">S?n ph?m xu?t</label>
                     <select class="form-select border-0 bg-light select-product" onchange="updateEditRowPrice(this)" required>
-                        <option value="">-- Chọn sản phẩm --</option>
+                        <option value="">-- Ch?n s?n ph?m --</option>
                         ${editProducts.map(p => `<option value="${p.Masp}" data-price="${p.Giaban || 0}" ${data && data.Masp === p.Masp ? 'selected' : ''}>${p.Tensp} (${p.Dvt || ''})</option>`).join('')}
                     </select>
                 </div>
                 <div class="col-md-2">
-                    <label class="form-label small text-muted">Số lượng</label>
+                    <label class="form-label small text-muted">S? lu?ng</label>
                     <input type="number" min="0.01" step="0.01" class="form-control border-0 bg-light input-qty" value="${data ? data.Soluong : ''}" oninput="calculateEditTotal()" required>
                 </div>
                 <div class="col-md-2">
-                    <label class="form-label small text-muted">Đơn giá (đ)</label>
+                    <label class="form-label small text-muted">�on gi� (d)</label>
                     <input type="number" min="0" step="1000" class="form-control border-0 bg-light input-price" value="${data ? data.Dongiaxuat : ''}" oninput="calculateEditTotal()" required>
                 </div>
                 <div class="col-md-2">
-                    <label class="form-label small text-muted">Thành tiền</label>
+                    <label class="form-label small text-muted">Th�nh ti?n</label>
                     <div class="form-control border-0 bg-light fw-bold text-success text-end row-total">0</div>
                 </div>
                 <div class="col-md-1">
@@ -255,14 +255,14 @@
             const data = await res.json();
             
             if (data.success) {
-                showEditNotify('Đã cập nhật phiếu xuất và điều chỉnh tồn kho thành công!', 'success');
+                showEditNotify('�� c?p nh?t phi?u xu?t v� di?u ch?nh t?n kho th�nh c�ng!', 'success');
                 setTimeout(() => window.location.href = 'phieu-xuat-danh-sach', 2000);
             } else {
                 showEditNotify(data.message, 'danger');
                 btn.disabled = false;
             }
         } catch (error) {
-            showEditNotify('Lỗi kết nối server', 'danger');
+            showEditNotify('L?i k?t n?i server', 'danger');
             btn.disabled = false;
         }
     });

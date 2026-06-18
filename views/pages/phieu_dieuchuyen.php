@@ -1,12 +1,12 @@
-﻿<div class="container-fluid">
+<div class="container-fluid">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
-            <h2 class="h4 mb-0 text-gray-800">Tạo phiếu điều chuyển kho</h2>
-            <p class="text-muted small mt-1">Điều chuyển hàng hóa giữa các kho</p>
+            <h2 class="h4 mb-0 text-gray-800">T?o phi?u di?u chuy?n kho</h2>
+            <p class="text-muted small mt-1">�i?u chuy?n h�ng h�a gi?a c�c kho</p>
         </div>
         <div>
-            <a href="/vlxd/phieu-dieuchuyen-danh-sach" class="btn btn-secondary btn-sm shadow-sm">
-                <i class="fas fa-arrow-left fa-sm text-white-50"></i> Danh sách phiếu điều chuyển
+            <a href="/phieu-dieuchuyen-danh-sach" class="btn btn-secondary btn-sm shadow-sm">
+                <i class="fas fa-arrow-left fa-sm text-white-50"></i> Danh s�ch phi?u di?u chuy?n
             </a>
         </div>
     </div>
@@ -18,64 +18,64 @@
             <form id="formDieuChuyen" onsubmit="event.preventDefault(); submitTransfer();">
                 <div class="row mb-3">
                     <div class="col-md-4">
-                        <label class="form-label fw-bold small text-muted">Mã điều chuyển *</label>
-                        <input type="text" id="madieuchuyen" name="madieuchuyen" required class="form-control" placeholder="Tự động nếu để trống">
+                        <label class="form-label fw-bold small text-muted">M� di?u chuy?n *</label>
+                        <input type="text" id="madieuchuyen" name="madieuchuyen" required class="form-control" placeholder="T? d?ng n?u d? tr?ng">
                     </div>
                     <div class="col-md-4">
-                        <label class="form-label fw-bold small text-muted">Kho xuất *</label>
+                        <label class="form-label fw-bold small text-muted">Kho xu?t *</label>
                         <select id="khoxuat" name="khoxuat" required class="form-select">
-                            <option value="">-- Chọn kho xuất --</option>
+                            <option value="">-- Ch?n kho xu?t --</option>
                         </select>
                     </div>
                     <div class="col-md-4">
-                        <label class="form-label fw-bold small text-muted">Kho nhập *</label>
+                        <label class="form-label fw-bold small text-muted">Kho nh?p *</label>
                         <select id="khonhap" name="khonhap" required class="form-select">
-                            <option value="">-- Chọn kho nhập --</option>
+                            <option value="">-- Ch?n kho nh?p --</option>
                         </select>
                     </div>
                 </div>
 
                 <div class="row mb-4">
                     <div class="col-md-6">
-                        <label class="form-label fw-bold small text-muted">Ngày điều chuyển *</label>
+                        <label class="form-label fw-bold small text-muted">Ng�y di?u chuy?n *</label>
                         <input type="date" id="ngaydieuchuyen" name="ngaydieuchuyen" required class="form-control">
                     </div>
                     <div class="col-md-6">
-                        <label class="form-label fw-bold small text-muted">Ghi chú</label>
-                        <input type="text" id="ghichu" name="ghichu" class="form-control" placeholder="Lý do điều chuyển...">
+                        <label class="form-label fw-bold small text-muted">Ghi ch�</label>
+                        <input type="text" id="ghichu" name="ghichu" class="form-control" placeholder="L� do di?u chuy?n...">
                     </div>
                 </div>
 
                 <hr class="mb-4">
 
-                <h5 class="fw-bold mb-3">Chi tiết sản phẩm điều chuyển</h5>
+                <h5 class="fw-bold mb-3">Chi ti?t s?n ph?m di?u chuy?n</h5>
                 <div id="product-list" class="mb-3">
                     <div class="row product-item mb-2 align-items-end">
                         <div class="col-md-5">
-                            <label class="form-label fw-bold small text-muted">Sản phẩm</label>
+                            <label class="form-label fw-bold small text-muted">S?n ph?m</label>
                             <select name="masp[]" class="form-select sp-select" required>
-                                <option value="">-- Chọn sản phẩm --</option>
+                                <option value="">-- Ch?n s?n ph?m --</option>
                             </select>
                         </div>
                         <div class="col-md-5">
-                            <label class="form-label fw-bold small text-muted">Số lượng</label>
+                            <label class="form-label fw-bold small text-muted">S? lu?ng</label>
                             <input type="number" name="soluong[]" step="0.01" min="0" class="form-control" required placeholder="0.00">
                         </div>
                         <div class="col-md-2">
                             <button type="button" class="btn btn-danger remove-item w-100" style="display: none;">
-                                <i class="fas fa-trash"></i> Xóa
+                                <i class="fas fa-trash"></i> X�a
                             </button>
                         </div>
                     </div>
                 </div>
 
                 <button type="button" id="add-product" class="btn btn-outline-primary mb-4">
-                    <i class="fas fa-plus"></i> Thêm sản phẩm
+                    <i class="fas fa-plus"></i> Th�m s?n ph?m
                 </button>
 
                 <div class="d-flex justify-content-end border-top pt-3">
                     <button type="submit" class="btn btn-success px-4 fw-bold shadow-sm">
-                        <i class="fas fa-save me-1"></i> Tạo phiếu
+                        <i class="fas fa-save me-1"></i> T?o phi?u
                     </button>
                 </div>
             </form>
@@ -87,22 +87,22 @@
     // ======================= MICROSERVICES FETCH API =========================
     let productsData = [];
 
-    // Gọi Gateway lấy kho và sản phẩm
+    // G?i Gateway l?y kho v� s?n ph?m
     async function initData() {
         try {
             const token = localStorage.getItem('token');
             const headers = { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' };
             
             const [resKho, resSp] = await Promise.all([
-                fetch('/vlxd/api_gateway.php/warehouses', { headers }),
-                fetch('/vlxd/api_gateway.php/products', { headers })
+                fetch('/api_gateway.php/warehouses', { headers }),
+                fetch('/api_gateway.php/products', { headers })
             ]);
             
             const dataKho = await resKho.json();
             const dataSp = await resSp.json();
 
             if(dataKho.success && dataKho.data.warehouses) {
-                let kHtml = '<option value="">-- Chọn kho --</option>';
+                let kHtml = '<option value="">-- Ch?n kho --</option>';
                 dataKho.data.warehouses.forEach(k => {
                     kHtml += `<option value="${k.Makho}">${k.Tenkho}</option>`;
                 });
@@ -115,13 +115,13 @@
                 updateProductSelects();
             }
         } catch(e) {
-            console.error("Lỗi lấy dữ liệu API", e);
-            showAlertCustom("Không thể tải dữ liệu kho/sản phẩm từ máy chủ.", "danger");
+            console.error("L?i l?y d? li?u API", e);
+            showAlertCustom("Kh�ng th? t?i d? li?u kho/s?n ph?m t? m�y ch?.", "danger");
         }
     }
 
     function updateProductSelects() {
-        let pHtml = '<option value="">-- Chọn sản phẩm --</option>';
+        let pHtml = '<option value="">-- Ch?n s?n ph?m --</option>';
         productsData.forEach(p => {
             pHtml += `<option value="${p.Masp}">${p.Masp} - ${p.Tensp}</option>`;
         });
@@ -130,7 +130,7 @@
         });
     }
 
-    // Logic thêm/xóa dòng sản phẩm
+    // Logic th�m/x�a d�ng s?n ph?m
     document.getElementById("add-product").addEventListener("click", function () {
         const productList = document.getElementById("product-list");
         const newItem = productList.querySelector(".product-item").cloneNode(true);
@@ -146,7 +146,7 @@
         }
     });
 
-    // Logic Submit Form tạo phiếu
+    // Logic Submit Form t?o phi?u
     async function submitTransfer() {
         const mag = document.getElementById("madieuchuyen").value.trim();
         const kx = document.getElementById("khoxuat").value;
@@ -155,7 +155,7 @@
         const note = document.getElementById("ghichu").value.trim();
 
         if (kx === kn) {
-            showAlertCustom('Kho xuất và Kho nhập không được trùng nhau.', 'warning');
+            showAlertCustom('Kho xu?t v� Kho nh?p kh�ng du?c tr�ng nhau.', 'warning');
             return;
         }
 
@@ -169,7 +169,7 @@
         });
 
         if(items.length === 0) {
-            showAlertCustom('Vui lòng thêm ít nhất một sản phẩm với số lượng hợp lệ.', 'warning');
+            showAlertCustom('Vui l�ng th�m �t nh?t m?t s?n ph?m v?i s? lu?ng h?p l?.', 'warning');
             return;
         }
 
@@ -184,7 +184,7 @@
 
         try {
             const token = localStorage.getItem('token');
-            const res = await fetch('/vlxd/api_gateway.php/transfers', {
+            const res = await fetch('/api_gateway.php/transfers', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -195,19 +195,19 @@
             const d = await res.json();
             
             if(d.success) {
-                showAlertCustom('Tạo phiếu điều chuyển thành công!', 'success');
-                // ĐÃ SỬA: Chuyển hướng sau khi tạo thành công
-                setTimeout(() => window.location.href = '/vlxd/phieu-dieuchuyen-danh-sach', 1000);
+                showAlertCustom('T?o phi?u di?u chuy?n th�nh c�ng!', 'success');
+                // �� S?A: Chuy?n hu?ng sau khi t?o th�nh c�ng
+                setTimeout(() => window.location.href = '/phieu-dieuchuyen-danh-sach', 1000);
             } else {
-                showAlertCustom(d.message || 'Lỗi tạo phiếu từ máy chủ.', 'danger');
+                showAlertCustom(d.message || 'L?i t?o phi?u t? m�y ch?.', 'danger');
             }
         } catch(e) {
             console.error(e);
-            showAlertCustom('Lỗi kết nối máy chủ.', 'danger');
+            showAlertCustom('L?i k?t n?i m�y ch?.', 'danger');
         }
     }
 
-    // Custom Alert Box cho component này
+    // Custom Alert Box cho component n�y
     function showAlertCustom(msg, type) {
         const a = document.getElementById('alertMsg');
         a.className = `alert alert-${type} mb-4`;

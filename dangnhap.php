@@ -59,7 +59,7 @@
     errorDiv.classList.add('hidden');
     
     try {
-        const response = await fetch('/vlxd/api_gateway.php/auth/login', {
+        const response = await fetch('/api_gateway.php/auth/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ Tendangnhap: u, Matkhau: p })

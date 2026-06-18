@@ -1,5 +1,5 @@
-﻿<style>
-    /* Chỉ giữ lại các CSS đặc thù cho component này */
+<style>
+    /* Ch? gi? l?i c�c CSS d?c th� cho component n�y */
     .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
     .info-item { background: #f0fdf4; border-radius: 8px; padding: 12px 16px; border: 1px solid #bbf7d0; }
     .info-label { font-size: 0.75rem; color: #065f46; text-transform: uppercase; font-weight: 700; margin-bottom: 2px; }
@@ -14,11 +14,11 @@
 <div class="container-fluid">
     <div class="d-flex justify-content-between align-items-center mb-4 p-4 text-white rounded shadow-sm" style="background: linear-gradient(135deg, #065f46, #059669);">
         <div>
-            <h1 class="h3 mb-1 fw-bold"><i class="fas fa-check-double me-2"></i>Xác nhận thực hiện điều chuyển</h1>
-            <p class="mb-0 opacity-75" id="subTitle">Đang tải thông tin phiếu...</p>
+            <h1 class="h3 mb-1 fw-bold"><i class="fas fa-check-double me-2"></i>X�c nh?n th?c hi?n di?u chuy?n</h1>
+            <p class="mb-0 opacity-75" id="subTitle">�ang t?i th�ng tin phi?u...</p>
         </div>
         <a id="backBtn" href="index.php?page=phieu-dieuchuyen-danh-sach" class="btn btn-light btn-sm fw-bold">
-            <i class="fas fa-arrow-left me-1"></i>Danh sách
+            <i class="fas fa-arrow-left me-1"></i>Danh s�ch
         </a>
     </div>
 
@@ -29,20 +29,20 @@
 
         <div class="card shadow mb-4">
             <div class="card-body">
-                <h6 class="fw-bold text-success mb-3"><i class="fas fa-info-circle me-1"></i>Thông tin phiếu</h6>
+                <h6 class="fw-bold text-success mb-3"><i class="fas fa-info-circle me-1"></i>Th�ng tin phi?u</h6>
                 <div class="info-grid" id="infoGrid"></div>
                 
-                <h6 class="fw-bold text-success mb-3 mt-4"><i class="fas fa-boxes-stacked me-1"></i>Chi tiết sản phẩm & tồn kho hiện tại</h6>
+                <h6 class="fw-bold text-success mb-3 mt-4"><i class="fas fa-boxes-stacked me-1"></i>Chi ti?t s?n ph?m & t?n kho hi?n t?i</h6>
                 <div class="table-responsive">
                     <table class="table table-hover table-bordered mb-0">
                         <thead class="table-light">
                             <tr>
-                                <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Mã SP</th>
-                                <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Tên sản phẩm</th>
-                                <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">ĐVT</th>
-                                <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-end">Số lượng ĐC</th>
-                                <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-end">Tồn kho xuất</th>
-                                <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center">Trạng thái</th>
+                                <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">M� SP</th>
+                                <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">T�n s?n ph?m</th>
+                                <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">�VT</th>
+                                <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-end">S? lu?ng �C</th>
+                                <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-end">T?n kho xu?t</th>
+                                <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center">Tr?ng th�i</th>
                             </tr>
                         </thead>
                         <tbody id="tbody"></tbody>
@@ -55,28 +55,28 @@
             <div class="d-flex align-items-start gap-3">
                 <i class="fas fa-exclamation-triangle text-warning fs-4 mt-1"></i>
                 <div>
-                    <strong>Cảnh báo quan trọng!</strong>
-                    <p class="mb-0 mt-1 text-muted">Hành động này sẽ <strong>cập nhật tồn kho vĩnh viễn</strong>: kho xuất giảm, kho nhập tăng số lượng tương ứng. Hãy kiểm tra kỹ tồn kho trước khi xác nhận.</p>
+                    <strong>C?nh b�o quan tr?ng!</strong>
+                    <p class="mb-0 mt-1 text-muted">H�nh d?ng n�y s? <strong>c?p nh?t t?n kho vinh vi?n</strong>: kho xu?t gi?m, kho nh?p tang s? lu?ng tuong ?ng. H�y ki?m tra k? t?n kho tru?c khi x�c nh?n.</p>
                 </div>
             </div>
         </div>
 
         <div class="d-flex gap-3 justify-content-center mb-5" id="actionBar">
-            <a href="index.php?page=phieu-dieuchuyen-danh-sach" class="btn btn-secondary px-4 shadow-sm">Hủy bỏ</a>
+            <a href="index.php?page=phieu-dieuchuyen-danh-sach" class="btn btn-secondary px-4 shadow-sm">H?y b?</a>
             <button class="btn btn-success fw-bold px-5 shadow-sm" id="btnConfirm" onclick="execute()">
-                <i class="fas fa-check me-2"></i>Xác nhận thực hiện
+                <i class="fas fa-check me-2"></i>X�c nh?n th?c hi?n
             </button>
         </div>
     </div>
 </div>
 
 <script>
-    const API = '/vlxd/api_gateway.php';
+    const API = '/api_gateway.php';
     const headers = { 'Authorization': 'Bearer ' + localStorage.getItem('token') };
     const id = new URLSearchParams(location.search).get('id');
     let transferData = null;
 
-    function fmtDate(s) { if (!s) return '—'; return new Date(s).toLocaleDateString('vi-VN'); }
+    function fmtDate(s) { if (!s) return '�'; return new Date(s).toLocaleDateString('vi-VN'); }
     function showAlert(msg, type = 'success') {
         const a = document.getElementById('alertBox');
         a.className = `alert alert-${type} shadow-sm`;
@@ -86,8 +86,8 @@
 
     async function load() {
         if (!id) {
-            // ĐÃ SỬA: Đường dẫn quay lại danh sách
-            showAlert('Không có mã phiếu trong URL. <a href="index.php?page=phieu-dieuchuyen-danh-sach" class="fw-bold">Quay lại danh sách</a>', 'danger');
+            // �� S?A: �u?ng d?n quay l?i danh s�ch
+            showAlert('Kh�ng c� m� phi?u trong URL. <a href="index.php?page=phieu-dieuchuyen-danh-sach" class="fw-bold">Quay l?i danh s�ch</a>', 'danger');
             return;
         }
         try {
@@ -96,27 +96,27 @@
             if (!data.success) throw new Error(data.message);
             const r = data.data.transfer;
             transferData = r;
-            document.getElementById('subTitle').textContent = 'Phiếu: ' + r.Madieuchuyen;
-            // ĐÃ SỬA: Đường dẫn nút Back trên Header
+            document.getElementById('subTitle').textContent = 'Phi?u: ' + r.Madieuchuyen;
+            // �� S?A: �u?ng d?n n�t Back tr�n Header
             document.getElementById('backBtn').href = 'index.php?page=phieu-dieuchuyen-chi-tiet&id=' + encodeURIComponent(id);
 
             if (r.Trangthai === 'da_thuc_hien') {
-                // ĐÃ SỬA: Đường dẫn quay lại danh sách
-                showAlert('<strong>Phiếu này đã được thực hiện rồi.</strong> Tồn kho đã được cập nhật trước đó. <a href="index.php?page=phieu-dieuchuyen-danh-sach" class="fw-bold">Quay lại danh sách</a>', 'warning');
+                // �� S?A: �u?ng d?n quay l?i danh s�ch
+                showAlert('<strong>Phi?u n�y d� du?c th?c hi?n r?i.</strong> T?n kho d� du?c c?p nh?t tru?c d�. <a href="index.php?page=phieu-dieuchuyen-danh-sach" class="fw-bold">Quay l?i danh s�ch</a>', 'warning');
                 return;
             }
 
             document.getElementById('arrowFlow').innerHTML = `
                 <div class="kho-chip"><i class="fas fa-store-alt me-1"></i>${r.TenKhoXuat || r.Khoxuat}</div>
-                <div class="text-center flex-grow-1"><i class="fas fa-long-arrow-alt-right fa-2x text-success"></i><div class="small text-muted">Điều chuyển</div></div>
+                <div class="text-center flex-grow-1"><i class="fas fa-long-arrow-alt-right fa-2x text-success"></i><div class="small text-muted">�i?u chuy?n</div></div>
                 <div class="kho-chip"><i class="fas fa-store me-1"></i>${r.TenKhoNhap || r.Khonhap}</div>`;
 
             document.getElementById('infoGrid').innerHTML = `
-                <div class="info-item"><div class="info-label">Mã phiếu</div><div class="info-value text-primary">${r.Madieuchuyen}</div></div>
-                <div class="info-item"><div class="info-label">Ngày điều chuyển</div><div class="info-value">${fmtDate(r.Ngaydieuchuyen)}</div></div>
-                <div class="info-item"><div class="info-label">Kho xuất</div><div class="info-value">${r.TenKhoXuat || r.Khoxuat}</div></div>
-                <div class="info-item"><div class="info-label">Kho nhập</div><div class="info-value">${r.TenKhoNhap || r.Khonhap}</div></div>
-                ${r.Ghichu ? `<div class="info-item" style="grid-column:1/-1"><div class="info-label">Ghi chú</div><div class="info-value text-muted">${r.Ghichu}</div></div>` : ''}`;
+                <div class="info-item"><div class="info-label">M� phi?u</div><div class="info-value text-primary">${r.Madieuchuyen}</div></div>
+                <div class="info-item"><div class="info-label">Ng�y di?u chuy?n</div><div class="info-value">${fmtDate(r.Ngaydieuchuyen)}</div></div>
+                <div class="info-item"><div class="info-label">Kho xu?t</div><div class="info-value">${r.TenKhoXuat || r.Khoxuat}</div></div>
+                <div class="info-item"><div class="info-label">Kho nh?p</div><div class="info-value">${r.TenKhoNhap || r.Khonhap}</div></div>
+                ${r.Ghichu ? `<div class="info-item" style="grid-column:1/-1"><div class="info-label">Ghi ch�</div><div class="info-value text-muted">${r.Ghichu}</div></div>` : ''}`;
 
             const details = r.details || [];
             let allOk = true;
@@ -125,30 +125,30 @@
                 if (!ok) allOk = false;
                 return `<tr>
                     <td><span class="badge bg-light text-dark border">${d.Masp}</span></td>
-                    <td class="fw-bold">${d.Tensp || '—'}</td>
-                    <td>${d.Dvt || '—'}</td>
+                    <td class="fw-bold">${d.Tensp || '�'}</td>
+                    <td>${d.Dvt || '�'}</td>
                     <td class="text-end fw-bold text-primary">${Number(d.Soluong || 0).toLocaleString('vi-VN')}</td>
-                    <td class="text-end ${ok ? 'ton-ok' : 'ton-low'}">${d.TonKhoXuat !== undefined ? Number(d.TonKhoXuat).toLocaleString('vi-VN') : '—'}</td>
-                    <td class="text-center">${ok ? '<span class="badge bg-success"><i class="fas fa-check me-1"></i> Đủ</span>' : '<span class="badge bg-danger"><i class="fas fa-times me-1"></i> Thiếu</span>'}</td>
+                    <td class="text-end ${ok ? 'ton-ok' : 'ton-low'}">${d.TonKhoXuat !== undefined ? Number(d.TonKhoXuat).toLocaleString('vi-VN') : '�'}</td>
+                    <td class="text-center">${ok ? '<span class="badge bg-success"><i class="fas fa-check me-1"></i> �?</span>' : '<span class="badge bg-danger"><i class="fas fa-times me-1"></i> Thi?u</span>'}</td>
                 </tr>`;
             }).join('');
 
             if (!allOk) {
                 document.getElementById('btnConfirm').disabled = true;
-                showAlert('Một số sản phẩm không đủ tồn kho. Không thể thực hiện điều chuyển.', 'danger');
+                showAlert('M?t s? s?n ph?m kh�ng d? t?n kho. Kh�ng th? th?c hi?n di?u chuy?n.', 'danger');
             }
             document.getElementById('mainContent').classList.remove('d-none');
         } catch (e) {
-            showAlert('Lỗi tải dữ liệu: ' + e.message, 'danger');
+            showAlert('L?i t?i d? li?u: ' + e.message, 'danger');
         }
     }
 
     async function execute() {
-        if (!confirm('Xác nhận thực hiện điều chuyển?\nTồn kho ' + (transferData?.TenKhoXuat || 'kho xuất') + ' sẽ giảm và ' + (transferData?.TenKhoNhap || 'kho nhập') + ' sẽ tăng.')) return;
+        if (!confirm('X�c nh?n th?c hi?n di?u chuy?n?\nT?n kho ' + (transferData?.TenKhoXuat || 'kho xu?t') + ' s? gi?m v� ' + (transferData?.TenKhoNhap || 'kho nh?p') + ' s? tang.')) return;
         
         const btn = document.getElementById('btnConfirm');
         btn.disabled = true;
-        btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Đang xử lý...';
+        btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>�ang x? l�...';
         
         try {
             const res = await fetch(API + '/transfers/' + encodeURIComponent(id) + '/execute', { 
@@ -160,20 +160,20 @@
             if (data.success) {
                 document.getElementById('actionBar').innerHTML = '';
                 document.getElementById('warnBox').classList.add('d-none');
-                // ĐÃ SỬA: Đường dẫn quay lại danh sách sau khi thực hiện thành công
-                showAlert(`<strong><i class="fas fa-check-circle me-1"></i>Điều chuyển hoàn thành!</strong> Tồn kho hai kho đã được cập nhật. <a href="index.php?page=phieu-dieuchuyen-danh-sach" class="btn btn-success btn-sm ms-3 shadow-sm"><i class="fas fa-arrow-left me-1"></i> Về danh sách</a>`);
+                // �� S?A: �u?ng d?n quay l?i danh s�ch sau khi th?c hi?n th�nh c�ng
+                showAlert(`<strong><i class="fas fa-check-circle me-1"></i>�i?u chuy?n ho�n th�nh!</strong> T?n kho hai kho d� du?c c?p nh?t. <a href="index.php?page=phieu-dieuchuyen-danh-sach" class="btn btn-success btn-sm ms-3 shadow-sm"><i class="fas fa-arrow-left me-1"></i> V? danh s�ch</a>`);
             } else {
-                showAlert(data.message || 'Có lỗi xảy ra', 'danger');
+                showAlert(data.message || 'C� l?i x?y ra', 'danger');
                 btn.disabled = false;
-                btn.innerHTML = '<i class="fas fa-check me-2"></i>Xác nhận thực hiện';
+                btn.innerHTML = '<i class="fas fa-check me-2"></i>X�c nh?n th?c hi?n';
             }
         } catch (e) {
-            showAlert('Lỗi kết nối server', 'danger');
+            showAlert('L?i k?t n?i server', 'danger');
             btn.disabled = false;
-            btn.innerHTML = '<i class="fas fa-check me-2"></i>Xác nhận thực hiện';
+            btn.innerHTML = '<i class="fas fa-check me-2"></i>X�c nh?n th?c hi?n';
         }
     }
 
-    // Khởi chạy khi tải trang
+    // Kh?i ch?y khi t?i trang
     document.addEventListener("DOMContentLoaded", load);
 </script>

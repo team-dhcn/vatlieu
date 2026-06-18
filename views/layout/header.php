@@ -30,7 +30,7 @@
         // API GATEWAY FETCH INTERCEPTOR
         // API monolith — tự rewrite URL /api_gateway.php/... sang ?route=
         // =====================================================
-        const API_BASE = '/vlxd/api_gateway.php';
+        const API_BASE = '/api_gateway.php';
         const API      = API_BASE; // Tương thích ngược với: fetch(API + '/...')
 
         function apiUrl(path, params = {}) {

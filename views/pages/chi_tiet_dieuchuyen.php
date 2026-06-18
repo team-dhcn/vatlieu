@@ -1,5 +1,5 @@
-﻿<style>
-    /* Chỉ giữ lại các CSS đặc thù cho component này */
+<style>
+    /* Ch? gi? l?i c�c CSS d?c th� cho component n�y */
     .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
     .info-item { background: #f0fdf4; border-radius: 8px; padding: 12px 16px; border: 1px solid #bbf7d0; }
     .info-label { font-size: 0.78rem; color: #047857; text-transform: uppercase; font-weight: 700; margin-bottom: 2px; }
@@ -11,15 +11,15 @@
 <div class="container-fluid">
     <div class="d-flex justify-content-between align-items-center mb-4 p-4 text-white rounded shadow-sm" style="background: linear-gradient(135deg, #0f766e, #14b8a6);">
         <div>
-            <h1 class="h3 mb-1 fw-bold"><i class="fas fa-exchange-alt me-2"></i>Chi tiết phiếu điều chuyển</h1>
-            <p class="mb-0 opacity-75" id="subTitle">Đang tải...</p>
+            <h1 class="h3 mb-1 fw-bold"><i class="fas fa-exchange-alt me-2"></i>Chi ti?t phi?u di?u chuy?n</h1>
+            <p class="mb-0 opacity-75" id="subTitle">�ang t?i...</p>
         </div>
         <div class="d-flex gap-2">
             <a href="index.php?page=phieu-dieuchuyen-danh-sach" class="btn btn-light btn-sm fw-bold">
-                <i class="fas fa-arrow-left me-1"></i>Danh sách
+                <i class="fas fa-arrow-left me-1"></i>Danh s�ch
             </a>
             <button class="btn btn-warning btn-sm fw-bold shadow-sm text-dark" id="btnThucHien" disabled onclick="goToExecutePage()">
-                <i class="fas fa-play me-1"></i>Thực hiện điều chuyển
+                <i class="fas fa-play me-1"></i>Th?c hi?n di?u chuy?n
             </button>
         </div>
     </div>
@@ -29,24 +29,24 @@
     <div class="card shadow mb-4">
         <div class="card-body">
             <div class="arrow-box shadow-sm" id="arrowBox">
-                <span class="text-muted small">Đang tải...</span>
+                <span class="text-muted small">�ang t?i...</span>
             </div>
             
             <div class="info-grid" id="infoGrid"></div>
             
-            <h6 class="fw-bold text-success mb-3 mt-4"><i class="fas fa-boxes-stacked me-1"></i>Sản phẩm điều chuyển</h6>
+            <h6 class="fw-bold text-success mb-3 mt-4"><i class="fas fa-boxes-stacked me-1"></i>S?n ph?m di?u chuy?n</h6>
             <div class="table-responsive">
                 <table class="table table-hover table-bordered mb-0">
                     <thead class="table-light">
                         <tr>
-                            <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Mã SP</th>
-                            <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Tên sản phẩm</th>
-                            <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">ĐVT</th>
-                            <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-end">Số lượng</th>
+                            <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">M� SP</th>
+                            <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">T�n s?n ph?m</th>
+                            <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">�VT</th>
+                            <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-end">S? lu?ng</th>
                         </tr>
                     </thead>
                     <tbody id="tbody">
-                        <tr><td colspan="4" class="text-center py-4 text-muted"><div class="spinner-border spinner-border-sm me-2"></div>Đang tải...</td></tr>
+                        <tr><td colspan="4" class="text-center py-4 text-muted"><div class="spinner-border spinner-border-sm me-2"></div>�ang t?i...</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -55,11 +55,11 @@
 </div>
 
 <script>
-    const API = '/vlxd/api_gateway.php';
+    const API = '/api_gateway.php';
     const headers = { 'Authorization': 'Bearer ' + localStorage.getItem('token') };
     const id = new URLSearchParams(location.search).get('id');
 
-    function fmtDate(s) { if (!s) return '—'; return new Date(s).toLocaleDateString('vi-VN'); }
+    function fmtDate(s) { if (!s) return '�'; return new Date(s).toLocaleDateString('vi-VN'); }
     function showAlert(msg, type = 'success') {
         const a = document.getElementById('alertBox');
         a.className = `alert alert-${type} shadow-sm`;
@@ -69,8 +69,8 @@
 
     async function load() {
         if (!id) { 
-            // ĐÃ SỬA: Link quay lại danh sách
-            showAlert('Không có mã phiếu điều chuyển. <a href="index.php?page=phieu-dieuchuyen-danh-sach" class="fw-bold">Về danh sách</a>', 'danger'); 
+            // �� S?A: Link quay l?i danh s�ch
+            showAlert('Kh�ng c� m� phi?u di?u chuy?n. <a href="index.php?page=phieu-dieuchuyen-danh-sach" class="fw-bold">V? danh s�ch</a>', 'danger'); 
             return; 
         }
         try {
@@ -79,7 +79,7 @@
             if (!data.success) throw new Error(data.message);
             
             const r = data.data.transfer;
-            document.getElementById('subTitle').textContent = 'Phiếu: ' + r.Madieuchuyen;
+            document.getElementById('subTitle').textContent = 'Phi?u: ' + r.Madieuchuyen;
             
             document.getElementById('arrowBox').innerHTML = `
                 <div class="kho-badge shadow-sm"><i class="fas fa-store-alt me-1"></i>${r.TenKhoXuat || r.Khoxuat}</div>
@@ -87,44 +87,44 @@
                 <div class="kho-badge shadow-sm"><i class="fas fa-store me-1"></i>${r.TenKhoNhap || r.Khonhap}</div>`;
                 
             document.getElementById('infoGrid').innerHTML = `
-                <div class="info-item shadow-sm"><div class="info-label">Mã phiếu</div><div class="info-value text-primary">${r.Madieuchuyen}</div></div>
-                <div class="info-item shadow-sm"><div class="info-label">Ngày điều chuyển</div><div class="info-value">${fmtDate(r.Ngaydieuchuyen)}</div></div>
-                <div class="info-item shadow-sm"><div class="info-label">Kho xuất</div><div class="info-value">${r.TenKhoXuat || r.Khoxuat}</div></div>
-                <div class="info-item shadow-sm"><div class="info-label">Kho nhập</div><div class="info-value">${r.TenKhoNhap || r.Khonhap}</div></div>
-                <div class="info-item shadow-sm" style="grid-column:1/-1"><div class="info-label">Ghi chú</div><div class="info-value text-muted">${r.Ghichu || '—'}</div></div>`;
+                <div class="info-item shadow-sm"><div class="info-label">M� phi?u</div><div class="info-value text-primary">${r.Madieuchuyen}</div></div>
+                <div class="info-item shadow-sm"><div class="info-label">Ng�y di?u chuy?n</div><div class="info-value">${fmtDate(r.Ngaydieuchuyen)}</div></div>
+                <div class="info-item shadow-sm"><div class="info-label">Kho xu?t</div><div class="info-value">${r.TenKhoXuat || r.Khoxuat}</div></div>
+                <div class="info-item shadow-sm"><div class="info-label">Kho nh?p</div><div class="info-value">${r.TenKhoNhap || r.Khonhap}</div></div>
+                <div class="info-item shadow-sm" style="grid-column:1/-1"><div class="info-label">Ghi ch�</div><div class="info-value text-muted">${r.Ghichu || '�'}</div></div>`;
                 
             const details = r.details || [];
             if (!details.length) { 
-                document.getElementById('tbody').innerHTML = '<tr><td colspan="4" class="text-center text-muted py-4">Không có chi tiết sản phẩm</td></tr>'; 
+                document.getElementById('tbody').innerHTML = '<tr><td colspan="4" class="text-center text-muted py-4">Kh�ng c� chi ti?t s?n ph?m</td></tr>'; 
                 return; 
             }
             
             document.getElementById('tbody').innerHTML = details.map(d => `<tr>
                 <td><span class="badge bg-light text-dark border">${d.Masp}</span></td>
-                <td class="fw-bold">${d.Tensp || '—'}</td>
-                <td>${d.Dvt || '—'}</td>
+                <td class="fw-bold">${d.Tensp || '�'}</td>
+                <td>${d.Dvt || '�'}</td>
                 <td class="text-end fw-bold text-primary">${Number(d.Soluong || 0).toLocaleString('vi-VN')}</td>
             </tr>`).join('');
 
-            // Xử lý nút Thực hiện
+            // X? l� n�t Th?c hi?n
             const btn = document.getElementById('btnThucHien');
             if (r.Trangthai !== 'da_thuc_hien') {
                 btn.disabled = false;
             } else {
-                btn.textContent = 'Đã thực hiện xong';
+                btn.textContent = '�� th?c hi?n xong';
                 btn.className = 'btn btn-sm btn-secondary fw-bold shadow-sm';
             }
         } catch (e) { 
-            showAlert('Lỗi: ' + e.message, 'danger'); 
+            showAlert('L?i: ' + e.message, 'danger'); 
         }
     }
 
-    // ĐÃ SỬA: Logic chuyển hướng sang trang "Thực hiện"
+    // �� S?A: Logic chuy?n hu?ng sang trang "Th?c hi?n"
     function goToExecutePage() {
         if (!id) return;
         window.location.href = 'index.php?page=phieu-dieuchuyen-thuc-hien&id=' + encodeURIComponent(id);
     }
 
-    // Khởi chạy
+    // Kh?i ch?y
     document.addEventListener("DOMContentLoaded", load);
 </script>
