@@ -17,7 +17,10 @@ session_destroy(); // Xóa sạch session trên server
         localStorage.removeItem('user');
         // Chuyển hướng về đúng file dangnhap.php
         window.location.href = 'dangnhap.php';
+    // lỗi xung đột
+    
     </script>
+
 </body>
 
 </html>
