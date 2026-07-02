@@ -7,7 +7,7 @@
 <div class="text-center mt-5 pt-5" style="position: relative; z-index: 1;">
     <h1 class="display-3 fw-bold text-primary mb-4">
         <i class="fas fa-warehouse me-3 text-warning"></i>
-        Chào mừng bạn quay trở lại!
+        Chào mừng bạn quay trở lạiqaaaaaaaaaa!
     </h1>
     <p class="lead text-muted fs-4">
         Hệ thống Quản lý Kho Vật liệu xây dựng (Microservices Architecture)
