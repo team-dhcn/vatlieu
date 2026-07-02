@@ -1,12 +1,12 @@
+
 <div class="d-flex justify-content-between align-items-center mb-5">
     <h2>Trang Chủ</h2>
 </div>
 
 <div class="text-center mt-5 pt-5" style="position: relative; z-index: 1;">
-    <h1 class="display-3 fw-bold text-primary mb-4">
-        <i class="fas fa-warehouse me-3 text-warning"></i>
-        Chào mừng bạn quay trở lại!
-    </h1>
+    <h1 class="display-3 fw-bold text-danger mb-4">
+    🚀 CI/CD TEST THÀNH CÔNG 🚀
+	</h1>
     <p class="lead text-muted fs-4">
         Hệ thống Quản lý Kho Vật liệu xây dựng (Microservices Architecture)
     </p>
