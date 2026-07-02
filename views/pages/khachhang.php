@@ -15,7 +15,7 @@
             <input class="form-control border-start-0" id="searchInput" placeholder="Tìm kiếm theo mã, tên, SĐT..." oninput="filterCustomers()">
         </div>
     </div>
-</div>
+</div> 
 
 <div class="card">
     <div class="card-body p-0">
