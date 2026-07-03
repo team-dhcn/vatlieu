@@ -1,4 +1,4 @@
-name: Deploy to Ubuntu Server
+name: CI/CD Pipeline
 
 on:
   push:
@@ -6,8 +6,21 @@ on:
       - main
 
 jobs:
-  deploy:
+  ci:
+    name: Continuous Integration
     runs-on: self-hosted
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Build Docker Image
+        run: docker compose build
+
+  cd:
+    name: Continuous Deployment
+    runs-on: self-hosted
+    needs: ci
 
     steps:
       - name: Checkout source code
@@ -18,10 +31,10 @@ jobs:
           cd ~/vatlieu
           git pull origin main
 
-      - name: Rebuild Docker containers
+      - name: Deploy application
         run: |
           cd ~/vatlieu
           docker compose up -d --build
 
-      - name: Show running containers
+      - name: Verify running containers
         run: docker ps
